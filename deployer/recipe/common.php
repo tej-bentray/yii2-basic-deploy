@@ -325,6 +325,9 @@ task('deploy:vendors', function () {
 
 })->desc('Installing vendors');
 
+task('deploy:run_migrations', function () {
+	run('php {{release_path}}/yii migrate up --interactive=0');
+})->desc('Run migrations');
 
 /**
  * Create symlink to last release.
