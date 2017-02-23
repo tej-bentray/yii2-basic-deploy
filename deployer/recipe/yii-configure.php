@@ -63,7 +63,7 @@ task('deploy:configure', function () {
                   $length = 32;
                   $bytes = openssl_random_pseudo_bytes($length);
                   $key = strtr(substr(base64_encode($bytes), 0, $length), '+/=', '_-.');
-                  $contents = preg_replace('/(("|\')cookieValidationKey("|\')\s*=>\s*)(""|\'\')/', "\\1'$key'", $contents);
+                  $contents = str_replace('CookieKey', $key, $contents);
                 }
 
                 $target   = preg_replace('/\.tpl$/', '', $file->getRelativePathname());
