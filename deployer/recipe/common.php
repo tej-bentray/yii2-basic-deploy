@@ -26,6 +26,7 @@ env('timezone', 'UTC');
 env('branch', ''); // Branch to deploy.
 env('env_vars', ''); // For Composer installation. Like SYMFONY_ENV=prod
 env('composer_options', 'install --no-dev --verbose --prefer-dist --optimize-autoloader --no-progress --no-interaction');
+env('composer_asset_plugin', 'global require "fxp/composer-asset-plugin:^1.2.0"');
 env('git_cache', function () { //whether to use git cache - faster cloning by borrowing objects from existing clones.
     $gitVersion = run('git version');
     $regs       = [];
@@ -316,7 +317,10 @@ task('deploy:vendors', function () {
         $composer = 'php composer.phar';
     }
 
+    run("cd {{release_path}} && $composer {{composer_asset_plugin}}");
+    
     $composerEnvVars = env('env_vars') ? 'export ' . env('env_vars') . ' &&' : '';
+    
     run("cd {{release_path}} && $composerEnvVars $composer {{composer_options}}");
 
 })->desc('Installing vendors');
