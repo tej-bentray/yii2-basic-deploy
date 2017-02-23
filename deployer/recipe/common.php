@@ -25,7 +25,7 @@ set('clear_use_sudo', true);    // Using sudo in clean commands?
 env('timezone', 'UTC');
 env('branch', ''); // Branch to deploy.
 env('env_vars', ''); // For Composer installation. Like SYMFONY_ENV=prod
-env('composer_options', 'install --no-dev --verbose --prefer-dist --optimize-autoloader --no-progress --no-interaction');
+env('composer_options', 'install --prefer-dist');
 env('composer_asset_plugin', 'global require "fxp/composer-asset-plugin:^1.2.0"');
 env('git_cache', function () { //whether to use git cache - faster cloning by borrowing objects from existing clones.
     $gitVersion = run('git version');
@@ -108,6 +108,8 @@ task('deploy:prepare', function () {
     // Create releases dir.
     run("cd {{deploy_path}} && if [ ! -d releases ]; then mkdir releases; fi");
 
+    //run("yum install git");
+    run("git --version");
     // Create shared dir.
     run("cd {{deploy_path}} && if [ ! -d shared ]; then mkdir shared; fi");
 })->desc('Preparing server for deploy');
@@ -317,7 +319,7 @@ task('deploy:vendors', function () {
         $composer = 'php composer.phar';
     }
 
-    run("cd {{release_path}} && $composer {{composer_asset_plugin}}");
+    //run("cd {{release_path}} && $composer {{composer_asset_plugin}}");
     
     $composerEnvVars = env('env_vars') ? 'export ' . env('env_vars') . ' &&' : '';
     
