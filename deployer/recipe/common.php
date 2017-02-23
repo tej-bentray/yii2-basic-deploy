@@ -108,11 +108,6 @@ task('deploy:prepare', function () {
     // Create releases dir.
     run("cd {{deploy_path}} && if [ ! -d releases ]; then mkdir releases; fi");
 
-<<<<<<< HEAD
-    //run("yum install git");
-    run("git --version");
-=======
->>>>>>> 0f8cfcb8b843e8eeb2e1cd9fa7bf4dd89d6d7537
     // Create shared dir.
     run("cd {{deploy_path}} && if [ ! -d shared ]; then mkdir shared; fi");
 })->desc('Preparing server for deploy');
