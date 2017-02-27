@@ -24,4 +24,4 @@ task('deploy:configure_composer', function () {
 //after('inplace:configure', 'inplace:run_migrations');
 before('deploy:vendors', 'deploy:configure_composer');
 before('deploy:vendors', 'deploy:configure_composer');
-after('deploy:shared', 'deploy:configure');
+before('deploy:shared', 'deploy:configure');
