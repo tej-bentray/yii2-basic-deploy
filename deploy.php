@@ -11,8 +11,7 @@ set('default_stage', 'production');
 set('keep_releases', 2);
 set('writable_use_sudo', false); // Using sudo in writable commands?
 set('shared_files', [
-    'config/db.php',
-	'config/web.php'
+    'config/db.php'
 ]);
 task('deploy:configure_composer', function () {
   $stage = env('app.stage');
@@ -23,6 +22,6 @@ task('deploy:configure_composer', function () {
 // uncomment the next two lines to run migrations
 //after('deploy:symlink', 'deploy:run_migrations');
 //after('inplace:configure', 'inplace:run_migrations');
+before('deploy:vendors', 'deploy:configure_composer');
+before('deploy:vendors', 'deploy:configure_composer');
 after('deploy:shared', 'deploy:configure');
-before('deploy:vendors', 'deploy:configure_composer');
-before('deploy:vendors', 'deploy:configure_composer');

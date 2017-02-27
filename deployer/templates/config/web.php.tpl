@@ -1,6 +1,6 @@
 <?php
 
-$params = require('{{release_path}}/config/params.php');
+$params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
