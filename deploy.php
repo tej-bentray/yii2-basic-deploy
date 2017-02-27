@@ -12,7 +12,9 @@ set('repository', '{{repository}}');
 set('keep_releases', 2);
 
 set('shared_files', [
-'config/db.php'
+'config/db.php',
+'config/web.php',
+'config/params.php'
 ]);
 
 task('deploy:configure_composer', function () {
