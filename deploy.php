@@ -23,5 +23,5 @@ task('deploy:configure_composer', function () {
 //after('deploy:symlink', 'deploy:run_migrations');
 //after('inplace:configure', 'inplace:run_migrations');
 after('deploy:shared', 'deploy:configure');
-before('inplace:vendors', 'deploy:configure_composer');
+before('deploy:vendors', 'deploy:configure_composer');
 before('deploy:vendors', 'deploy:configure_composer');
