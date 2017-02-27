@@ -11,7 +11,8 @@ set('default_stage', 'production');
 set('keep_releases', 2);
 set('writable_use_sudo', false); // Using sudo in writable commands?
 set('shared_files', [
-    'config/db.php'
+    'config/db.php',
+	'config/web.php'
 ]);
 task('deploy:configure_composer', function () {
   $stage = env('app.stage');
