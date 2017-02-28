@@ -72,6 +72,8 @@ task('deploy:configure', function () {
                     if(basename($file) === 'yii.tpl') {
                         upload($tmpFile, "$releaseDir/" . $target);
                         run('chmod +x ' . "$releaseDir/" . $target);
+                    }if(basename($file) === 'web.php.tpl') {
+                    	upload($tmpFile, "$releaseDir/" . $target);
                     } else {
                         run("mkdir -p $deployDir/shared/" . dirname($target));
                         upload($tmpFile, "$deployDir/shared/" . $target);

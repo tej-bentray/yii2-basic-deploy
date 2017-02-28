@@ -8,8 +8,6 @@ The template contains the basic features including user login/logout and a conta
 It includes all commonly used configurations that would allow you to focus on adding new
 features to your application.
 
-[![Latest Stable Version](https://poser.pugx.org/jacmoe/yii2-app-basic-deployer/v/stable.png)](https://packagist.org/packages/jacmoe/yii2-app-basic-deployer)
-[![Total Downloads](https://poser.pugx.org/jacmoe/yii2-app-basic-deployer/downloads.png)](https://packagist.org/packages/jacmoe/yii2-app-basic-deployer)
 
 HOW IS THIS DIFFERENT FROM STANDARD BASIC APP?
 ----------------------------------------------
